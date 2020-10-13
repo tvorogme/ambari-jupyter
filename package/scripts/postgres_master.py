@@ -1,21 +1,14 @@
 from resource_management import *
-from postgres_base import PostgresBase
+from anaconda_base import AnacondaBase
 from resource_management.core.exceptions import ExecutionFailed
 
-class PostgresServer(PostgresBase):
-    postgres_packages = ['postgresql-13']
+class PostgresServer(AnacondaBase):
 
     def install(self, env):
         import params
         env.set_params(params)
-        self.install_pg(env)
-        print("Initializing Postgress DB")
-        init_cmd = format('/usr/pgsql-13/bin/postgresql-13-setup initdb')
-        try:
-            Execute(init_cmd)
-        except ExecutionFailed as ef:
-            print("Error {0}".format(ef))
-        self.config_pg(env)
+        self.install_ac(env)
+        print("Installing Ancaonda")
 
     def configure(self, env):
         import params

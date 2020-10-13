@@ -16,33 +16,3 @@ limitations under the License.
 from resource_management import *
 
 config = Script.get_config()
-
-conf_dir = "/var/lib/pgsql/13/data"
-
-# env settings
-postgres_user = config['configurations']['postgres-env']['postgres_user']
-postgres_user_group = config['configurations']['postgres-env']['postgres_user_group']
-postgres_pid_dir = config['configurations']['postgres-env']['postgres_pid_dir']
-
-# site settings
-listen_addresses = config['configurations']['postgres-site']['listen_addresses']
-tcp_port = config['configurations']['postgres-site']['tcp_port']
-max_connections = config['configurations']['postgres-site']['max_connections']
-shared_buffers = config['configurations']['postgres-site']['shared_buffers']
-effective_cache_size = config['configurations']['postgres-site']['effective_cache_size']
-work_mem = config['configurations']['postgres-site']['work_mem']
-maintenance_work_mem = config['configurations']['postgres-site']['maintenance_work_mem']
-min_wal_size = config['configurations']['postgres-site']['min_wal_size']
-max_wal_size = config['configurations']['postgres-site']['max_wal_size']
-wal_buffers = config['configurations']['postgres-site']['wal_buffers']
-checkpoint_completion_target = config['configurations']['postgres-site']['checkpoint_completion_target']
-default_statistics_target = config['configurations']['postgres-site']['default_statistics_target']
-
-# client hba setting
-client_type = config['configurations']['postgres-hba']['client_type']
-client_database = config['configurations']['postgres-hba']['client_database']
-client_user = config['configurations']['postgres-hba']['client_user']
-client_address = config['configurations']['postgres-hba']['client_address']
-client_method = config['configurations']['postgres-hba']['client_method']
-
-postgres_host = default('/clusterHostInfo/postgres_server_hosts', ['unknown'])[0]

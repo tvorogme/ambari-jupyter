@@ -1,14 +1,15 @@
 from resource_management import *
-from postgres_base import PostgresBase
+from anaconda_base import AnacondaBase
 
-class PostgresClient(PostgresBase):
+
+class AnacondaClient(AnacondaBase):
     postgres_packages = ['postgresql-13']
 
     def install(self, env):
         import params
         env.set_params(params)
-        self.install_pg(env)
-        self.config_pg(env)
+        self.install_ac(env)
+
 
 if __name__ == "__main__":
-    PostgresClient().execute()
+    AnacondaClient().execute()
