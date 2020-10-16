@@ -16,3 +16,5 @@ limitations under the License.
 from resource_management import *
 
 config = Script.get_config()
+
+postgres_user = config['configurations']['jupyter-env']['jupyter_user']

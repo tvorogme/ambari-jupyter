@@ -3,30 +3,18 @@
   <schemaVersion>2.0</schemaVersion>
   <services>
     <service>
-      <name>POSTGRESDB</name>
-      <displayName>PostgresDB 13</displayName>
-      <comment>PostgreSQL is cool</comment>
-      <version>13</version>
+      <name>Jupyter</name>
+      <displayName>Jupyter</displayName>
+      <comment>Jupyter is cool</comment>
+      <version>179</version>
       <components>
         <component>
-          <name>POSTGRESDB_SERVER</name>
-          <displayName>PostgresDB Server</displayName>
+          <name>Anaconda</name>
+          <displayName>Anaconda</displayName>
           <category>MASTER</category>
           <cardinality>1</cardinality>
           <commandScript>
-            <script>scripts/postgres_master.py</script>
-            <scriptType>PYTHON</scriptType>
-            <timeout>300</timeout>
-          </commandScript>
-        </component>
-
-        <component>
-          <name>POSTGRESDB_CLIENT</name>
-          <displayName>PostgresDB Shell and utilities</displayName>
-          <category>CLIENT</category>
-          <cardinality>0+</cardinality>
-          <commandScript>
-            <script>scripts/postgres_client.py</script>
+            <script>scripts/jupyter.py</script>
             <scriptType>PYTHON</scriptType>
             <timeout>300</timeout>
           </commandScript>
@@ -46,9 +34,7 @@
       </commandScript>
 
       <configuration-dependencies>
-        <config-type>postgres-env</config-type>
-        <config-type>postgres-site</config-type>
-        <config-type>postgres-hba</config-type>
+        <config-type>jupyter-env</config-type>
       </configuration-dependencies>
     </service>
   </services>

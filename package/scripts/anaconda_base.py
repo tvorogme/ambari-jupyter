@@ -15,20 +15,20 @@ class AnacondaBase(Script):
         except ExecutionFailed as ef:
             print(f"Error, maybe installed {ef}")
 
-        filestr = """[Unit]
-Description=ROT13 demo service
-After=network.target
-StartLimitIntervalSec=0
-[Service]
-Type=simple
-Restart=always
-RestartSec=1
-User=centos
-ExecStart=/usr/bin/env php /path/to/server.php
-
-[Install]
-WantedBy=multi-user.target"""
-        Execute(f'echo "{filestr}" > /etc/systemd/system/jupyter.service')
+#         filestr = """[Unit]
+# Description=Jupyter-Notebook service
+# After=network.target
+# StartLimitIntervalSec=0
+# [Service]
+# Type=simple
+# Restart=always
+# RestartSec=1
+# User=root
+# ExecStart=/opt/anaconda3/bin/jupyter-notebook
+#
+# [Install]
+# WantedBy=multi-user.target"""
+#         Execute(f'echo "{filestr}" > /etc/systemd/system/jupyter.service')
 
     def install(self, env):
         self.install_ac(self, env)

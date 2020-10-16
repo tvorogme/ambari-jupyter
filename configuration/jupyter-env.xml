@@ -21,32 +21,22 @@
 -->
 
 <configuration>
-  <property>
-    <name>client_type</name>
-    <display-name>Client Type</display-name>
-    <value>host</value>
-    <description>Type of client to allow to connect</description>
-  </property>
-  <property>
-    <name>client_database</name>
-    <display-name>Postgres Databases</display-name>
-    <value>all</value>
-    <description>Databases to allow connection to</description>
-  </property>
-  <property>
-    <name>client_user</name>
-    <value>all</value>
-    <description>Users to allow to connect</description>
-  </property>
-  <property>
-    <name>client_address</name>
-    <value>0.0.0.0/0</value>
-    <description>Source of client connections to allow</description>
-  </property>
-  <property>
-    <name>client_method</name>
-    <value>trust</value>
-    <description>Authentication Method</description>
-  </property>
-
+    <property>
+        <name>jupyter_user</name>
+        <display-name>Jupyter User</display-name>
+        <value>headlabs</value>
+        <property-type>USER</property-type>
+        <description>User to run jupyter</description>
+        <value-attributes>
+            <type>user</type>
+            <overridable>false</overridable>
+            <user-groups>
+                <property>
+                    <type>cluster-env</type>
+                    <name>user_group</name>
+                </property>
+            </user-groups>
+        </value-attributes>
+        <on-ambari-upgrade add="false"/>
+    </property>
 </configuration>
