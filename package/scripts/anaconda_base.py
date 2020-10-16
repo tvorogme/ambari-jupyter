@@ -8,12 +8,14 @@ class AnacondaBase(Script):
         import params
         env.set_params(params)
 
+        Execute("cd /tmp")
+
+        Execute("curl -O https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh")
+
         try:
-            Execute("cd /tmp")
-            Execute("curl -O https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh")
             Execute("bash Anaconda3-2020.07-Linux-x86_64.sh -b -p /opt/anaconda")
         except ExecutionFailed as ef:
-            print(f"Error, maybe installed {ef}")
+            print("Error, maybe installed {0}".format(ef))
 
 #         filestr = """[Unit]
 # Description=Jupyter-Notebook service
