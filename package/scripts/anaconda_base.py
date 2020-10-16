@@ -1,6 +1,6 @@
 from resource_management import Execute, Script
 from resource_management.core.exceptions import ExecutionFailed
-
+import os
 
 class AnacondaBase(Script):
 
@@ -8,29 +8,33 @@ class AnacondaBase(Script):
         import params
         env.set_params(params)
 
-        Execute("cd /tmp")
+        filestr = """[Unit]
+        Description=Jupyter-Notebook service
+        After=network.target
+        StartLimitIntervalSec=0
+        [Service]
+        Type=simple
+        Restart=always
+        RestartSec=1
+        User=root
+        ExecStart=/opt/anaconda3/bin/jupyter-notebook
 
-        Execute("curl -O https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh")
+        [Install]
+        WantedBy=multi-user.target"""
+
+        if 'anaconda' in os.listdir("/opt"):
+            print("already installed")
+            return
 
         try:
+            Execute("cd /tmp")
+            Execute("curl -O https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh")
             Execute("bash Anaconda3-2020.07-Linux-x86_64.sh -b -p /opt/anaconda")
+            Execute(f'echo "{filestr}" > /etc/systemd/system/jupyter.service')
+            Execute(f'sudo systemctl daemon-reload')
         except ExecutionFailed as ef:
-            print("Error, maybe installed {0}".format(ef))
-
-#         filestr = """[Unit]
-# Description=Jupyter-Notebook service
-# After=network.target
-# StartLimitIntervalSec=0
-# [Service]
-# Type=simple
-# Restart=always
-# RestartSec=1
-# User=root
-# ExecStart=/opt/anaconda3/bin/jupyter-notebook
-#
-# [Install]
-# WantedBy=multi-user.target"""
-#         Execute(f'echo "{filestr}" > /etc/systemd/system/jupyter.service')
+            print("Error {0}".format(ef))
+            return
 
     def install(self, env):
         self.install_ac(self, env)
