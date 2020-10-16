@@ -30,7 +30,7 @@ class AnacondaBase(Script):
             Execute("cd /tmp")
             Execute("curl -O https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh")
             Execute("bash Anaconda3-2020.07-Linux-x86_64.sh -b -p /opt/anaconda")
-            Execute(f'echo "{filestr}" > /etc/systemd/system/jupyter.service')
+            Execute('echo "{0}" > /etc/systemd/system/jupyter.service'.format(filestr))
             Execute(f'sudo systemctl daemon-reload')
         except ExecutionFailed as ef:
             print("Error {0}".format(ef))
