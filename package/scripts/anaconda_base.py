@@ -44,9 +44,9 @@ class AnacondaBase(Script):
 
         File("{0}jupyter_notebook_config.py".format(params.config_dir),
              content=Template("jupyter_notebook_config.py.j2", configurations=params.config['configurations']['jupyter-env']),
-             jupyter_port=params.jupyter_port,
-             jupyter_password=params.jupyter_password,
-             mode=0o0600,
+             owner=params.anaconda_user,
+             group=params.anaconda_group,
+             mode=0o0600
              )
 
     def install(self, env):
