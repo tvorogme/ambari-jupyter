@@ -33,7 +33,6 @@
         <name>jupyter_password</name>
         <display-name>Jupyter Password</display-name>
         <value>headlabs</value>
-        <property-type>PASSWORD</property-type>
         <description>User to run jupyter</description>
         <on-ambari-upgrade add="false"/>
     </property>

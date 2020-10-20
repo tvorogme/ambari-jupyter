@@ -12,8 +12,16 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
-
+import hashlib
+import uuid
 from resource_management import *
+
+def hashText(text):
+    """
+        Basic hashing function for a text using random unique salt.
+    """
+    salt = uuid.uuid4().hex
+    return 'sha1:'+hashlib.sha1(salt.encode() + text.encode()).hexdigest() + ':' + salt
 
 config = Script.get_config()
 
