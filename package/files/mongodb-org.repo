@@ -1,6 +1,0 @@
-[postgres-org-3.2]
-name=PostgresDB Repository
-baseurl=https://repo.postgres.org/yum/redhat/$releasever/postgres-org/3.2/$basearch/
-gpgcheck=1
-enabled=1
-gpgkey=https://www.postgres.org/static/pgp/server-3.2.asc
