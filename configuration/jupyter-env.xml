@@ -24,7 +24,7 @@
     <property>
         <name>jupyter_port</name>
         <display-name>Jupyter Port</display-name>
-        <value>headlabs</value>
+        <value>8085</value>
         <description>Port to run jupyter</description>
         <on-ambari-upgrade add="false"/>
     </property>

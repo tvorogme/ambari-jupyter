@@ -33,6 +33,7 @@ class AnacondaBase(Script):
             Execute("bash Anaconda3-2020.07-Linux-x86_64.sh -b -p /opt/anaconda")
             Execute('echo "{0}" > /etc/systemd/system/jupyter.service'.format(filestr))
             Execute('sudo systemctl daemon-reload')
+            self.configure_ac(env)
         except ExecutionFailed as ef:
             print("Error {0}".format(ef))
             return
@@ -41,10 +42,10 @@ class AnacondaBase(Script):
         import params
         env.set_params(params)
 
-        File("{0}/jupyter_notebook_config.py".format(params.config_dir),
+        File("{0}jupyter_notebook_config.py".format(params.config_dir),
              content=Template("jupyter_notebook_config.py.conf.j2", configurations=params.config['configurations']['jupyter-env']),
              jupyter_port=params.jupyter_port,
-             JUPYTER_PASSWORD=params.jupyter_password,
+             jupyter_password=params.jupyter_password,
              mode=0o0600,
              )
 
