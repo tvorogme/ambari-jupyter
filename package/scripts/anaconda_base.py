@@ -43,7 +43,7 @@ class AnacondaBase(Script):
         env.set_params(params)
 
         File("{0}jupyter_notebook_config.py".format(params.config_dir),
-             content=Template("jupyter_notebook_config.py.conf.j2", configurations=params.config['configurations']['jupyter-env']),
+             content=Template("jupyter_notebook_config.py.j2", configurations=params.config['configurations']['jupyter-env']),
              jupyter_port=params.jupyter_port,
              jupyter_password=params.jupyter_password,
              mode=0o0600,
