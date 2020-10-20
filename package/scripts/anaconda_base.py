@@ -1,4 +1,4 @@
-from resource_management import Execute, Script
+from resource_management import Execute, Script, File, Template
 from resource_management.core.exceptions import ExecutionFailed
 import os
 
@@ -17,10 +17,10 @@ class AnacondaBase(Script):
         Restart=always
         RestartSec=1
         User=root
-        ExecStart=/opt/anaconda/bin/jupyter-notebook --allow-root --ip 0.0.0.0 --port {0}
+        ExecStart=/opt/anaconda/bin/jupyter-notebook --config {0}jupyter_notebook_config.py
 
         [Install]
-        WantedBy=multi-user.target""".format(str(params.jupyter_port))
+        WantedBy=multi-user.target""".format(params.config_dir)
 
         if 'anaconda' in os.listdir("/opt"):
             print("already installed")
@@ -28,6 +28,7 @@ class AnacondaBase(Script):
 
         try:
             Execute("cd /tmp")
+            Execute("mkdir /opt/jupyter/")
             Execute("curl -O https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh")
             Execute("bash Anaconda3-2020.07-Linux-x86_64.sh -b -p /opt/anaconda")
             Execute('echo "{0}" > /etc/systemd/system/jupyter.service'.format(filestr))
@@ -35,6 +36,17 @@ class AnacondaBase(Script):
         except ExecutionFailed as ef:
             print("Error {0}".format(ef))
             return
+
+    def configure_ac(self, env):
+        import params
+        env.set_params(params)
+
+        File("{0}/jupyter_notebook_config.py".format(params.config_dir),
+             content=Template("jupyter_notebook_config.py.conf.j2", configurations=params.config['configurations']['jupyter-env']),
+             jupyter_port=params.jupyter_port,
+             JUPYTER_PASSWORD=params.jupyter_password,
+             mode=0o0600,
+             )
 
     def install(self, env):
         self.install_ac(self, env)

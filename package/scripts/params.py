@@ -17,5 +17,6 @@ from resource_management import *
 
 config = Script.get_config()
 
+config_dir = "/opt/jupyter/"
 jupyter_port = config['configurations']['jupyter-env']['jupyter_port']
 jupyter_password = config['configurations']['jupyter-env']['jupyter_password']
