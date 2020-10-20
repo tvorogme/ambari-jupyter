@@ -17,4 +17,5 @@ from resource_management import *
 
 config = Script.get_config()
 
-postgres_user = config['configurations']['jupyter-env']['jupyter_user']
+jupyter_port = config['configurations']['jupyter-env']['port']
+jupyter_password = config['configurations']['jupyter-env']['password']

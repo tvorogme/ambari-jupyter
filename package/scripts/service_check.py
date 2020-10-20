@@ -16,13 +16,12 @@ limitations under the License.
 from __future__ import print_function
 from resource_management import *
 import  sys,subprocess,os
-import requests
-import time
 
 class ServiceCheck(Script):
     def service_check(self, env):
         import params
         env.set_params(params)
+        Execute('service jupyter status')
 
 if __name__ == "__main__":
     ServiceCheck().execute()

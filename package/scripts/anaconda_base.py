@@ -17,10 +17,10 @@ class AnacondaBase(Script):
         Restart=always
         RestartSec=1
         User=root
-        ExecStart=/opt/anaconda3/bin/jupyter-notebook
+        ExecStart=/opt/anaconda/bin/jupyter-notebook --allow-root --ip 0.0.0.0 --port {0}
 
         [Install]
-        WantedBy=multi-user.target"""
+        WantedBy=multi-user.target""".format(str(params.jupyter_port))
 
         if 'anaconda' in os.listdir("/opt"):
             print("already installed")
