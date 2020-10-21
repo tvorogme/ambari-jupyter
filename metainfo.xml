@@ -3,10 +3,10 @@
   <schemaVersion>2.0</schemaVersion>
   <services>
     <service>
-      <name>Jupyter</name>
-      <displayName>Jupyter</displayName>
+      <name>Jupyter1</name>
+      <displayName>Jupyter1</displayName>
       <comment>Jupyter is cool</comment>
-      <version>179</version>
+      <version>180</version>
       <components>
         <component>
           <name>Anaconda</name>
