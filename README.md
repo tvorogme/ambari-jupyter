@@ -76,12 +76,13 @@ curl -u admin:$PASSWORD -i -H 'X-Requested-By: ambari' -X PUT -d '{"RequestInfo"
   - Delete the service
   
     ```
+    Not working
     curl -u admin:admin -i -H 'X-Requested-By: ambari' -X DELETE http://replace_with_your_ambari_hostname.com:8080/api/v1/clusters/ambari_cluster_name/services/POSTGRESDB
     ```
   - Remove artifacts 
   
     ```
-    rm -rf /var/lib/ambari-server/resources/stacks/HDP/2.2/services/postgres-ambari
+    rm -rf /var/lib/ambari-server/resources/stacks/HDP/3.1/services/ANACONDA
     ```
   - Restart Ambari
     ```

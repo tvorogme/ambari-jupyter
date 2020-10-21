@@ -13,6 +13,7 @@ class JupyterServer(AnacondaBase):
     def configure(self, env):
         import params
         env.set_params(params)
+        print('configure'*100)
         self.configure_ac(env)
         reload_cmd = format("service jupyter reload")
         Execute(reload_cmd)
