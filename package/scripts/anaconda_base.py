@@ -29,7 +29,10 @@ class AnacondaBase(Script):
         try:
             Execute("cd /tmp")
             Execute("mkdir /opt/jupyter/")
-            Execute("curl -O https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh")
+            try:
+                Execute("curl -O https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh")
+            except:
+                Execute("cp /var/lib/ambari-agent/Anaconda3-2020.07-Linux-x86_64.sh /tmp")
             Execute("bash Anaconda3-2020.07-Linux-x86_64.sh -b -p /opt/anaconda")
             Execute('echo "{0}" > /etc/systemd/system/jupyter.service'.format(filestr))
             Execute('sudo systemctl daemon-reload')
