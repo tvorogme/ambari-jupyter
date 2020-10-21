@@ -26,14 +26,12 @@
         <display-name>Jupyter Port</display-name>
         <value>8085</value>
         <description>Port to run jupyter</description>
-        <on-ambari-upgrade add="false"/>
     </property>
 
     <property>
         <name>jupyter_password</name>
         <display-name>Jupyter Password</display-name>
         <value>headlabs</value>
-        <description>User to run jupyter</description>
-        <on-ambari-upgrade add="false"/>
+        <description>Password to run jupyter</description>
     </property>
 </configuration>
