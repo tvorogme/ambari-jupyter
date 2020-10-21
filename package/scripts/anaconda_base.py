@@ -46,7 +46,10 @@ class AnacondaBase(Script):
         for key in params.config['configurations']['jupyter-env']:
             conf[key] = params.config['configurations']['jupyter-env'][key]
 
-        conf['jupyter_password'] = params.hashText(conf['jupyter_password'])
+        conf['jupyter_password'] = "'"+params.hashText(conf['jupyter_password'])+"'"
+
+        print("----------------------------\n",conf,"\n------------------------------------------------")
+
         File("{0}jupyter_notebook_config.py".format(params.config_dir),
              content=Template("jupyter_notebook_config.py.j2",
                               configurations=conf),
