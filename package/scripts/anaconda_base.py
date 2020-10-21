@@ -47,11 +47,20 @@ class AnacondaBase(Script):
             conf[key] = params.config['configurations']['jupyter-env'][key]
 
         conf['jupyter_password'] = params.hashText(conf['jupyter_password'])
+        conf['jupyter_test'] = "test1243"
 
         print("----------------------------\n",conf,"\n------------------------------------------------")
 
         File("{0}jupyter_notebook_config.py".format(params.config_dir),
              content=Template("jupyter_notebook_config.py.j2",
+                              configurations=conf),
+             owner=params.anaconda_user,
+             group=params.anaconda_group,
+             mode=0o0600
+             )
+
+        File("{0}test.py".format(params.config_dir),
+             content=Template("jupyter_test.py.j2",
                               configurations=conf),
              owner=params.anaconda_user,
              group=params.anaconda_group,
