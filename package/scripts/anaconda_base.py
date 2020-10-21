@@ -47,7 +47,7 @@ class AnacondaBase(Script):
             conf[key] = params.config['configurations']['jupyter-env'][key]
 
         conf['jupyter_password'] = params.hashText(conf['jupyter_password'])
-        conf['jupyter_test'] = "test1243"
+        conf[u'jupyter_test'] = u"test1243"
 
         print("----------------------------\n",conf,"\n------------------------------------------------")
 
