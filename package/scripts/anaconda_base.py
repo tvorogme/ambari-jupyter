@@ -61,7 +61,8 @@ class AnacondaBase(Script):
              group=params.anaconda_group,
              mode=0o0600
              )
-        File(format("{params.config_dir}test.py"),
+
+        File("{0}test.py".format(params.config_dir),
              content=Template("jupyter_test.py.j2",
                               configurations=conf),
              owner=params.anaconda_user,
