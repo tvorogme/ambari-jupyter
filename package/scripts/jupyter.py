@@ -29,6 +29,7 @@ class JupyterServer(AnacondaBase):
         Execute(stop_cmd)
 
     def restart(self, env):
+        self.configure_ac(env)
         print("Restartarting jupyter")
         Execute('service jupyter restart')
 
