@@ -1,6 +1,7 @@
-from resource_management import Execute, Script, File, Template
+from resource_management import Execute, Script, File, Template, Directory
 from resource_management.core.exceptions import ExecutionFailed
 import os
+
 
 class AnacondaBase(Script):
 
@@ -28,7 +29,10 @@ class AnacondaBase(Script):
 
         try:
             Execute("cd /tmp")
-            Execute("mkdir /opt/jupyter/")
+            Directory(path=params.config_dir,
+                      owner=params.anaconda_user,
+                      group=params.anaconda_group,
+                      mode=0o0600)
             try:
                 Execute("curl -O https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh")
             except:
@@ -50,20 +54,11 @@ class AnacondaBase(Script):
             conf[key] = params.config['configurations']['jupyter-env'][key]
 
         conf['jupyter_password'] = params.hashText(conf['jupyter_password'])
-        conf[u'jupyter_test'] = u"test1243"
 
-        print("----------------------------\n",conf,"\n------------------------------------------------")
+        print("----------------------------\n", conf, "\n------------------------------------------------")
 
         File("{0}jupyter_notebook_config.py".format(params.config_dir),
              content=Template("jupyter_notebook_config.py.j2",
-                              configurations=conf),
-             owner=params.anaconda_user,
-             group=params.anaconda_group,
-             mode=0o0600
-             )
-
-        File("{0}test.py".format(params.config_dir),
-             content=Template("jupyter_test.py.j2",
                               configurations=conf),
              owner=params.anaconda_user,
              group=params.anaconda_group,

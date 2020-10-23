@@ -1,6 +1,7 @@
 from resource_management import *
 from anaconda_base import AnacondaBase
 from resource_management.core.exceptions import ExecutionFailed
+import subprocess
 
 class JupyterServer(AnacondaBase):
 
@@ -13,7 +14,7 @@ class JupyterServer(AnacondaBase):
     def configure(self, env):
         import params
         env.set_params(params)
-        print('configure'*100)
+        subprocess.call("mkdir /opt/jupyter/ceonfigure")
         self.configure_ac(env)
         reload_cmd = format("service jupyter reload")
         Execute(reload_cmd)
