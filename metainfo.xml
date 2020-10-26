@@ -23,8 +23,8 @@
         <component>
           <name>PortForwarding</name>
           <displayName>Port forward</displayName>
-          <category>SLAVE</category>
-          <cardinality>1+</cardinality>
+          <category>MASTER</category>
+          <cardinality>1</cardinality>
           <commandScript>
             <script>scripts/port_forward.py</script>
             <scriptType>PYTHON</scriptType>
