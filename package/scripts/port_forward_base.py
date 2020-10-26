@@ -20,6 +20,7 @@ class PortForwardBase(Script):
              group=params.anaconda_group,
              mode=0o0600
              )
+        Execute('sudo systemctl daemon-reload')
 
     def install(self, env):
         self.install_ac(env)
