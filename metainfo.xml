@@ -6,7 +6,7 @@
       <name>Jupyter</name>
       <displayName>Jupyter</displayName>
       <comment>Jupyter is cool</comment>
-      <version>180</version>
+      <version>182</version>
       <components>
         <component>
           <name>Anaconda</name>
