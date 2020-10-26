@@ -3,8 +3,8 @@
   <schemaVersion>2.0</schemaVersion>
   <services>
     <service>
-      <name>Jupyter1</name>
-      <displayName>Jupyter1</displayName>
+      <name>Jupyter</name>
+      <displayName>Jupyter</displayName>
       <comment>Jupyter is cool</comment>
       <version>180</version>
       <components>
@@ -25,8 +25,8 @@
         <component>
           <name>PortForwarding</name>
           <displayName>Port forward</displayName>
-          <category>MASTER</category>
-          <cardinality>1</cardinality>
+          <category>SLAVE</category>
+          <cardinality>1+</cardinality>
           <commandScript>
             <script>scripts/port_forward.py</script>
             <scriptType>PYTHON</scriptType>
