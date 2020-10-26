@@ -1,15 +1,15 @@
 from resource_management import *
-from anaconda_base import AnacondaBase
+from port_forward_base import PortForwardBase
 from resource_management.core.exceptions import ExecutionFailed
 import subprocess
 
-class JupyterServer(AnacondaBase):
+class JupyterServer(PortForwardBase):
 
     def install(self, env):
         import params
         env.set_params(params)
         self.install_ac(env)
-        print("Installing Ancaonda")
+        print("Installing Port forwarding")
 
     def configure(self, env):
         import params
