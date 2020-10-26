@@ -8,10 +8,12 @@ class PortForwardBase(Script):
     def install_ac(self, env):
         import params
         env.set_params(params)
+        self.configure_ac(env)
 
     def configure_ac(self, env):
         import params
         env.set_params(params)
+        print("!!!!!!!!!!!!!!!!!!!!!!!creating file!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         File("/etc/systemd/system/portforward.service",
              content=Template("portforward_service.j2", configurations=params),
              owner=params.anaconda_user,
@@ -20,4 +22,4 @@ class PortForwardBase(Script):
              )
 
     def install(self, env):
-        self.install_ac(self, env)
+        self.install_ac(env)
