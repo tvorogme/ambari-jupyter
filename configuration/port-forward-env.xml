@@ -23,8 +23,8 @@
 <configuration>
     <property>
         <name>port_forward</name>
-        <display-name>IZB01 Port</display-name>
+        <display-name>Client Port</display-name>
         <value>8873</value>
-        <description>Port to forward on izb-01</description>
+        <description>Port to forward on client</description>
     </property>
 </configuration>
