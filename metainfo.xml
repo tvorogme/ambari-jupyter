@@ -21,6 +21,20 @@
         </component>
       </components>
 
+      <components>
+        <component>
+          <name>PortForwarding</name>
+          <displayName>Port forward</displayName>
+          <category>MASTER</category>
+          <cardinality>1</cardinality>
+          <commandScript>
+            <script>scripts/port_forward.py</script>
+            <scriptType>PYTHON</scriptType>
+            <timeout>300</timeout>
+          </commandScript>
+        </component>
+      </components>
+
       <osSpecifics>
         <osSpecific>
           <osFamily>any</osFamily>
