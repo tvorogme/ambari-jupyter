@@ -3,7 +3,7 @@
   <schemaVersion>2.0</schemaVersion>
   <services>
     <service>
-      <name>!Jupyter!</name>
+      <name>Jupyter (0)_(0)</name>
       <displayName>Jupyter</displayName>
       <comment>Jupyter is cool</comment>
       <version>182</version>
@@ -19,9 +19,7 @@
             <timeout>300</timeout>
           </commandScript>
         </component>
-      </components>
 
-      <components>
         <component>
           <name>PortForwarding</name>
           <displayName>Port forward</displayName>
