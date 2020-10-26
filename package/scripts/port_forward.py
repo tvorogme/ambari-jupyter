@@ -15,27 +15,27 @@ class JupyterServer(PortForwardBase):
         import params
         env.set_params(params)
         self.configure_ac(env)
-        reload_cmd = format("service jupyter reload")
+        reload_cmd = format("service portforward reload")
         Execute(reload_cmd)
 
     def start(self, env):
-        print("Starting jupyter")
-        start_cmd = format("service jupyter start")
+        print("Starting portforward")
+        start_cmd = format("service portforward start")
         Execute(start_cmd)
 
     def stop(self, env):
-        print("Stopping jupyter")
-        stop_cmd = format("service jupyter stop")
+        print("Stopping portforward")
+        stop_cmd = format("service portforward stop")
         Execute(stop_cmd)
 
     def restart(self, env):
         self.configure_ac(env)
-        print("Restartarting jupyter")
-        Execute('service jupyter restart')
+        print("Restartarting port forwarding")
+        Execute('service portforward restart')
 
     def status(self, env):
-        print("Checking jupyter status...")
-        Execute('service jupyter status')
+        print("Checking portforward status...")
+        Execute('service portforward status')
 
 if __name__ == "__main__":
     JupyterServer().execute()

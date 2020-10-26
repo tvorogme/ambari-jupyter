@@ -13,7 +13,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 import hashlib
-import uuid
 from resource_management import *
 import random
 
@@ -39,4 +38,4 @@ jupyter_password = config['configurations']['jupyter-env']['jupyter_password']
 anaconda_user = 'root'
 anaconda_group = 'root'
 
-izb01_port = config['configurations']['port-forward-env']['port_forward']
+client_port = config['configurations']['port-forward-env']['port_forward']

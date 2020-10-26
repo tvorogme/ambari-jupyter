@@ -1,0 +1,12 @@
+[Unit]
+Description=Setup a remote tunnel to Anaconda
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/ssh -o GatewayPorts=true -fNT -L {{client_port}}:0.0.0.0:{{jupyter_port}} root@izb-lab01
+RestartSec=15
+Restart=always
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
