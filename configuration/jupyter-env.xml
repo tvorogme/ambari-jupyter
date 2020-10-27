@@ -39,7 +39,7 @@
         <name>jupyter_root_dir</name>
         <display-name>Jupyter Root Directory</display-name>
         <value>/</value>
-        <description>Password to run jupyter</description>
+        <description>Root directory in jupyter</description>
     </property>
 
 </configuration>

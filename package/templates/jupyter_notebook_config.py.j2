@@ -211,7 +211,7 @@ c.NotebookApp.ip = '0.0.0.0'
 #c.NotebookApp.nbserver_extensions = {}
 
 ## The directory to use for notebooks and kernels.
-#c.NotebookApp.notebook_dir = ''
+c.NotebookApp.notebook_dir = '{{jupyter_root_dir}}'
 
 ## Whether to open in a browser after starting. The specific browser used is
 #  platform dependent and determined by the python standard library `webbrowser`
@@ -600,7 +600,7 @@ c.ConnectionFileMixin.ip = '0.0.0.0'
 #c.ContentsManager.pre_save_hook = None
 
 ##
-#c.ContentsManager.root_dir = {{jupyter_root_dir}}
+#c.ContentsManager.root_dir = ''
 
 ## The base name used when creating untitled directories.
 #c.ContentsManager.untitled_directory = 'Untitled Folder'
