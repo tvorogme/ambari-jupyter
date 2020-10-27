@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 ExecStart=/usr/bin/ssh -o GatewayPorts=true -L {{client_port}}:0.0.0.0:{{jupyter_port}} root@izb-lab01
+RestartSec=5
 Restart=always
-KillMode=mixed
 
 [Install]
 WantedBy=multi-user.target
