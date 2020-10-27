@@ -32,7 +32,7 @@ class AnacondaBase(Script):
         except:
             print("directory exists")
 
-        Execute("curl -O https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh /tmp/anaconda.sh")
+        Execute("curl -o /tmp/anaconda.sh https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh")
         Execute("bash /tmp/anaconda.sh -b -p /opt/anaconda")
         Execute('echo "{0}" > /etc/systemd/system/jupyter.service'.format(filestr))
         Execute('sudo systemctl daemon-reload')
