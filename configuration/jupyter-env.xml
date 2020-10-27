@@ -38,7 +38,7 @@
     <property>
         <name>jupyter_root_dir</name>
         <display-name>Jupyter Root Directory</display-name>
-        <value>headlabs</value>
+        <value>/</value>
         <description>Password to run jupyter</description>
     </property>
 
