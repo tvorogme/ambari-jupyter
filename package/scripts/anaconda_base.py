@@ -25,18 +25,18 @@ class AnacondaBase(Script):
 
         if 'anaconda' in os.listdir("/opt"):
             print("already installed")
-            return
+        else:
+            Execute("curl -o /tmp/anaconda.sh https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh")
+            Execute("bash /tmp/anaconda.sh -b -p /opt/anaconda")
+            Execute('rm -f /opt/anaconda.sh')
 
-        try:
-            Directory(params.config_dir, create_parents=True)
-        except:
+        if 'jupyter' in os.listdir("/opt"):
             print("directory exists")
+        else:
+            Directory(params.config_dir, create_parents=True)
 
-        Execute("curl -o /tmp/anaconda.sh https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh")
-        Execute("bash /tmp/anaconda.sh -b -p /opt/anaconda")
         Execute('echo "{0}" > /etc/systemd/system/jupyter.service'.format(filestr))
         Execute('sudo systemctl daemon-reload')
-        Execute('rm -f /opt/anaconda.sh')
         self.configure_ac(env)
 
     def configure_ac(self, env):
