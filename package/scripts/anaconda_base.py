@@ -36,7 +36,7 @@ class AnacondaBase(Script):
         Execute("bash /tmp/anaconda.sh -b -p /opt/anaconda")
         Execute('echo "{0}" > /etc/systemd/system/jupyter.service'.format(filestr))
         Execute('sudo systemctl daemon-reload')
-        Execute('rm -y /opt/anaconda.sh')
+        Execute('rm -f /opt/anaconda.sh')
         self.configure_ac(env)
 
     def configure_ac(self, env):
