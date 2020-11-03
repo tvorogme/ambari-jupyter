@@ -28,6 +28,7 @@ class AnacondaBase(Script):
         else:
             Execute("curl -o /tmp/anaconda.sh https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh")
             Execute("bash /tmp/anaconda.sh -b -p /opt/anaconda")
+            Execute("export PATH=$PATH:/opt/anaconda/bin/")
             Execute('rm -f /opt/anaconda.sh')
 
         if 'jupyter' in os.listdir("/opt"):
