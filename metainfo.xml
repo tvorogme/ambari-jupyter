@@ -3,7 +3,7 @@
   <schemaVersion>2.0</schemaVersion>
   <services>
     <service>
-      <name>Jupyter3</name>
+      <name>JUPYTER3</name>
       <displayName>Jupyter</displayName>
       <comment>Jupyter is cool</comment>
       <version>182</version>
