@@ -31,6 +31,25 @@ class AnacondaBase(Script):
             Execute("export PATH=$PATH:/opt/anaconda/bin/")
             Execute('rm -f /opt/anaconda.sh')
 
+        path = os.environ['PATH']
+        binary_directory = '/opt/anaconda/bin'
+        print(path)
+        if binary_directory not in path:
+            print("Not in path")
+            new_path = 'PATH=$PATH:' + binary_directory + "\n"
+            with open('/root/.bash_profile') as f:
+                text = f.readlines()
+            if new_path not in text:
+                text.insert(-2, new_path)
+                text = "".join(text)
+                with open('/root/.bash_profile', 'w') as f:
+                    f.write(text)
+            print(text)
+        else:
+            print('already in path')
+
+        Execute('source /root/.bash_profile')
+
         if 'jupyter' in os.listdir("/opt"):
             print("directory exists")
         else:
