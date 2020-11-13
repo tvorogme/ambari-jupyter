@@ -6,7 +6,7 @@
       <name>JUPYTER3</name>
       <displayName>Jupyter</displayName>
       <comment>Jupyter is cool</comment>
-      <version>182</version>
+      <version>183</version>
       <components>
         <component>
           <name>Anaconda</name>
@@ -21,8 +21,8 @@
         </component>
 
         <component>
-          <name>PortForwarding</name>
-          <displayName>Port forward</displayName>
+          <name>JupyterPortForwarding</name>
+          <displayName>Jupyter Port forward</displayName>
           <category>MASTER</category>
           <cardinality>1</cardinality>
           <commandScript>

@@ -42,4 +42,11 @@
         <description>Root directory in jupyter</description>
     </property>
 
+    <property>
+        <name>jupyter_host</name>
+        <display-name>Jupyter Host</display-name>
+        <value>/</value>
+        <description>Host where jupyter is running</description>
+    </property>
+
 </configuration>

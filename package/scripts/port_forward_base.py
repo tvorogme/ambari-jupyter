@@ -14,7 +14,7 @@ class PortForwardBase(Script):
         import params
         env.set_params(params)
         print("!!!!!!!!!!!!!!!!!!!!!!!creating file!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        File("/etc/systemd/system/portforward.service",
+        File("/etc/systemd/system/jupyter_portforward.service",
              content=Template("portforward_service.j2", configurations=params),
              owner=params.anaconda_user,
              group=params.anaconda_group,
