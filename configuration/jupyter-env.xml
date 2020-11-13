@@ -29,6 +29,13 @@
     </property>
 
     <property>
+        <name>jupyter_host</name>
+        <display-name>Jupyter Host</display-name>
+        <value>root@izb-lab01</value>
+        <description>Host where jupyter is running</description>
+    </property>
+
+    <property>
         <name>jupyter_password</name>
         <display-name>Jupyter Password</display-name>
         <value>headlabs</value>
@@ -41,12 +48,4 @@
         <value>/</value>
         <description>Root directory in jupyter</description>
     </property>
-
-    <property>
-        <name>jupyter_host</name>
-        <display-name>Jupyter Host</display-name>
-        <value>/</value>
-        <description>Host where jupyter is running</description>
-    </property>
-
 </configuration>

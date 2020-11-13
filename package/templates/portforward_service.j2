@@ -3,7 +3,7 @@ Description=Setup a remote tunnel to Anaconda
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/ssh -o GatewayPorts=true -nNT -L {{client_port}}:0.0.0.0:{{jupyter_port}} root@izb-lab01
+ExecStart=/usr/bin/ssh -o GatewayPorts=true -nNT -L {{client_port}}:0.0.0.0:{{jupyter_port}} {{jupyter_host}}
 RestartSec=15
 Restart=always
 

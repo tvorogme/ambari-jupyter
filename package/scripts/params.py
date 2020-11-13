@@ -33,6 +33,8 @@ config = Script.get_config()
 
 config_dir = "/opt/jupyter/"
 jupyter_port = config['configurations']['jupyter-env']['jupyter_port']
+jupyter_host = config['configurations']['jupyter-env']['jupyter_host']
+
 jupyter_password = config['configurations']['jupyter-env']['jupyter_password']
 jupyter_root_dir = config['configurations']['jupyter-env']['jupyter_root_dir']
 
