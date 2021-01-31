@@ -3,7 +3,7 @@
   <schemaVersion>2.0</schemaVersion>
   <services>
     <service>
-      <name>JUPYTER_HL</name>
+      <name>JUPYTER3_HL</name>
       <displayName>Jupyter HL</displayName>
       <comment>Jupyter is cool</comment>
       <version>183</version>

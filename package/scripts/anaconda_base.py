@@ -64,8 +64,8 @@ class AnacondaBase(Script):
         env.set_params(params)
 
         conf = dict()
-        for key in params.config['configurations']['jupyter-env']:
-            conf[key] = params.config['configurations']['jupyter-env'][key]
+        for key in params.config['configurations']['jupyter-hl-env']:
+            conf[key] = params.config['configurations']['jupyter-hl-env'][key]
 
         conf['jupyter_password'] = params.hashText(conf['jupyter_password'])
 
