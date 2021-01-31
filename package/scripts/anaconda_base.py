@@ -18,7 +18,7 @@ class AnacondaBase(Script):
         Restart=always
         RestartSec=1
         User=root
-        ExecStart=/opt/anaconda/bin/jupyter-notebook --config {0}jupyter_notebook_config.py
+        ExecStart=/opt/anaconda/bin/jupyter-lab --config {0}jupyter_notebook_config.py
 
         [Install]
         WantedBy=multi-user.target""".format(params.config_dir)
