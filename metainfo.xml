@@ -6,7 +6,7 @@
       <name>JUPYTER3_HL</name>
       <displayName>Jupyter HL</displayName>
       <comment>Jupyter is cool</comment>
-      <version>183</version>
+      <version>184</version>
       <components>
         <component>
           <name>Anaconda</name>
