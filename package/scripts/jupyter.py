@@ -3,6 +3,7 @@ from anaconda_base import AnacondaBase
 from resource_management.core.exceptions import ExecutionFailed
 import subprocess
 
+
 class JupyterServer(AnacondaBase):
 
     def install(self, env):
@@ -35,7 +36,12 @@ class JupyterServer(AnacondaBase):
 
     def status(self, env):
         print("Checking jupyter status...")
-        Execute('systemctl status jupyter')
+
+        try:
+            Execute('systemctl status jupyter')
+        except ExecutionFailed:
+            return False
+
 
 if __name__ == "__main__":
     JupyterServer().execute()
