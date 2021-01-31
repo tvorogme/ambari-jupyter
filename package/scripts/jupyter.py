@@ -1,6 +1,6 @@
 from resource_management import *
 from anaconda_base import AnacondaBase
-from resource_management.core.exceptions import ExecutionFailed
+from resource_management.core.exceptions import ExecutionFailed, ComponentIsNotRunning
 import subprocess
 
 
@@ -40,7 +40,7 @@ class JupyterServer(AnacondaBase):
         try:
             Execute('systemctl status jupyter')
         except ExecutionFailed:
-            return False
+            raise ComponentIsNotRunning
 
 
 if __name__ == "__main__":
