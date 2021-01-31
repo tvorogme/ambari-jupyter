@@ -32,13 +32,13 @@ def hashText(text):
 config = Script.get_config()
 
 config_dir = "/opt/jupyter/"
-jupyter_port = config['configurations']['jupyter-env']['jupyter_port']
-jupyter_host = config['configurations']['jupyter-env']['jupyter_host']
+jupyter_port = config['configurations']['jupyter-hl-env']['jupyter_port']
+jupyter_host = config['configurations']['jupyter-hl-env']['jupyter_host']
 
-jupyter_password = config['configurations']['jupyter-env']['jupyter_password']
-jupyter_root_dir = config['configurations']['jupyter-env']['jupyter_root_dir']
+jupyter_password = config['configurations']['jupyter-hl-env']['jupyter_password']
+jupyter_root_dir = config['configurations']['jupyter-hl-env']['jupyter_root_dir']
 
 anaconda_user = 'root'
 anaconda_group = 'root'
 
-client_port = config['configurations']['port-forward-env']['port_forward']
+client_port = config['configurations']['port-jupyter-forward-env']['port_forward']

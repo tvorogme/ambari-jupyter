@@ -40,8 +40,8 @@
       </osSpecifics>
 
       <configuration-dependencies>
-        <config-type>jupyter-env</config-type>
-        <config-type>port-forward-env</config-type>
+        <config-type>jupyter-hl-env</config-type>
+        <config-type>port-jupyter-forward-env</config-type>
       </configuration-dependencies>
     </service>
   </services>
