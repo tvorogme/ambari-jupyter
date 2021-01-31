@@ -15,27 +15,27 @@ class JupyterServer(AnacondaBase):
         import params
         env.set_params(params)
         self.configure_ac(env)
-        reload_cmd = format("service jupyter reload")
+        reload_cmd = format("systemctl reload jupyter")
         Execute(reload_cmd)
 
     def start(self, env):
         print("Starting jupyter")
-        start_cmd = format("service jupyter start")
+        start_cmd = format("systemctl start jupyter")
         Execute(start_cmd)
 
     def stop(self, env):
         print("Stopping jupyter")
-        stop_cmd = format("service jupyter stop")
+        stop_cmd = format("systemctl stop jupyter")
         Execute(stop_cmd)
 
     def restart(self, env):
         self.configure_ac(env)
         print("Restartarting jupyter")
-        Execute('service jupyter restart')
+        Execute('systemctl restart jupyter')
 
     def status(self, env):
         print("Checking jupyter status...")
-        Execute('service jupyter status')
+        Execute('systemctl status jupyter')
 
 if __name__ == "__main__":
     JupyterServer().execute()

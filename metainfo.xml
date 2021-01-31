@@ -3,8 +3,8 @@
   <schemaVersion>2.0</schemaVersion>
   <services>
     <service>
-      <name>JUPYTER3</name>
-      <displayName>Jupyter</displayName>
+      <name>JUPYTER_HL</name>
+      <displayName>Jupyter HL</displayName>
       <comment>Jupyter is cool</comment>
       <version>183</version>
       <components>
@@ -21,7 +21,7 @@
         </component>
 
         <component>
-          <name>JupyterPortForwarding</name>
+          <name>JUPYTER_PORT_FORWARD</name>
           <displayName>Jupyter Port forward</displayName>
           <category>MASTER</category>
           <cardinality>1</cardinality>
@@ -38,12 +38,6 @@
           <osFamily>any</osFamily>
         </osSpecific>
       </osSpecifics>
-
-      <commandScript>
-        <script>scripts/service_check.py</script>
-        <scriptType>PYTHON</scriptType>
-        <timeout>300</timeout>
-      </commandScript>
 
       <configuration-dependencies>
         <config-type>jupyter-env</config-type>
